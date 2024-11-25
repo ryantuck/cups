@@ -2,8 +2,8 @@ import json
 import math
 
 g = 10
-OMEGA_DECAY_RATE = 1 # speed
-THETA_DECAY_RATE = 0.01 # fall angle
+OMEGA_DECAY_RATE = 0.4 # speed
+THETA_DECAY_RATE = 0.03 # fall angle
 
 def o_theta(theta_i, t):
     # radial downward motion from wi=0 due to gravity
@@ -51,19 +51,20 @@ def simulate():
 
     n_steps = 100
     dt = 0.1
+
     theta_min = math.pi / 4
 
     t = 0
     x, y = 0,0
-    theta_i = 1.5
+
+    theta_i = math.pi / 3
+    omega_i = 1
 
     rc = 2
 
-    omega_i = 40
     v_i = v_c(rc, omega_i)
     v = v_i
-    #phi = math.pi / 2
-    phi = 1.6
+    phi = math.pi / 2
     theta = theta_i
 
     print(json.dumps({'t': t, 'v': v, 'theta': theta, 'x': x, 'y': y, 'phi': phi}))
