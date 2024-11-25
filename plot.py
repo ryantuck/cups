@@ -11,6 +11,8 @@ for line in sys.stdin:
     x.append(data['x'])
     y.append(data['y'])
 
+output_file = sys.argv[1]
+
 plt.scatter(x, y)
 plt.plot(x, y)
-plt.savefig('scatter.png')
+plt.savefig(output_file)
